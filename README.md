@@ -2,11 +2,11 @@
 Docker 
 
 --- Docker Hub
---- Docker File
+--- Docker File    (IS use for create docker image)
 --- Docker Images
 --- Docker Container 
---- Docker Volumes
---- Docker Compose
+--- Docker Volume
+--- Docker Compose  (IS use for create docker container)
 --- Docker Network
 --- Docker Swarm 
 
@@ -56,7 +56,7 @@ docker inspect container_id|container_name  show the running container details
 docker rm container_name|container_id : Remove container 
 docker rm $(docker ps -aq)   Remove all container
 
-
+docker logs container_name|container_id   (Logs of container)
 
 docker build dockerfile_path 
 
@@ -70,7 +70,7 @@ docker build . -t ubuntu:1.0
 Docker Volumes
 
 docker volume ls  (List of all volume)
-docker volume ls -q (Print Volume names)
+docker volume ls -q (Print all Volume names)
 
 docker volume prune  (remove all not running volumes)
 
@@ -91,3 +91,41 @@ docker run -it -p 9000:80 -v demo-vol:/var ubuntu bash
 
 
 
+Docker Network
+
+docker network ls (List of all networks)
+docker network ls -q (Print all networks network_id )
+
+docker network create network_name 
+docker network create -d driver_name network_name 
+
+connect to the exiting container to network     
+docker network connect network_name container_id
+docker network disconnect network_name container_id
+
+docker Compose
+version - use for schema version
+
+service : define container name 
+    app : 
+        image : docker image name
+
+
+volumes : define volumes for container 
+
+
+docker-compose.yml
+docker-compose up 
+
+docker-compose up -d ( background process)
+
+
+mysql container run
+
+docker run -d \
+     --network todo-app --network-alias mysql \
+     -v todo-mysql-data:/var/lib/mysql \
+     -e MYSQL_ROOT_PASSWORD=secret \
+     -e MYSQL_DATABASE=todos \
+     mysql:5.7
+    
