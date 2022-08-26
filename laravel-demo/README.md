@@ -1,4 +1,4 @@
-docker compose up -d   (-d use for background process)
+docker compose up -d --build  (-d use for background process)
 
 docker exec laravel_php composer create-project laravel/laravel .    (only first time)
 

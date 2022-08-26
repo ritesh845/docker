@@ -1,0 +1,75 @@
+version: '3.7'
+networks:
+  exam-protal:
+services:
+  frontend-angular:
+    build: 
+      context: .
+      dockerfile: "./docker/Dockerfile.angular"
+    container_name: frontend-angular
+    image: frontend-angular
+    ports:
+      - 4200:4200
+    networks:
+      - exam-protal
+  nginx_laravel: 
+    image: nginx:stable-alpine
+    container_name: nginx_laravel
+    ports: 
+      - "8085:80"
+    volumes:
+      - ./backend:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - laravel_php
+      - laravel_mysql
+    networks:
+      - exam-protal
+
+  laravel_mysql:
+    image: mysql:5.7
+    container_name: laravel_mysql
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "4031:3036"
+    environment:
+      MYSQL_DATABASE: exam-protal
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - exam-protal
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: unless-stopped
+    environment:
+      PMA_HOST: laravel_mysql
+      PMA_USER: homestead
+      PMA_PASSWORD: secret
+    ports:
+      - "8081:80"
+    networks:
+      - exam-protal
+  laravel_php:
+    build: 
+      context: .
+      dockerfile: "./docker/Dockerfile.laravel"
+    container_name: laravel_php
+    image: laravel_php
+    restart: unless-stopped
+    tty: true
+    volumes: 
+      - ./backend:/var/www/html
+    working_dir: /var/www/html
+    depends_on:
+      - laravel_mysql
+    ports:
+      - "9000:9000"
+    networks:
+      - exam-protal    
+    
