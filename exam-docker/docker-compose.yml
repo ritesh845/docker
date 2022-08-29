@@ -5,9 +5,12 @@ services:
   frontend-angular:
     build: 
       context: .
-      dockerfile: "./docker/Dockerfile.angular"
-    container_name: frontend-angular
+      dockerfile: ./docker/Dockerfile.angular
     image: frontend-angular
+    volumes:
+      - /usr/src/app/node_modules
+      - './frontend:/usr/src/app'
+    container_name: frontend-angular
     ports:
       - 4200:4200
     networks:
