@@ -1,7 +1,8 @@
-git clone backend app \
-git clone frontend app \
+git clone backend app 
 
-after that \
+git clone frontend app 
+
+after that 
 
 build all docker images run below command  
 
@@ -48,7 +49,7 @@ for angular project set enviorment variable
 
 src/environments/enviorment.ts
 
-baseUrl: 'http://localhost:8085/api/',
+baseUrl: 'http://localhost:8085/api/'
 
 popupUrl: 'http://localhost:8085/user/exam/'
 
