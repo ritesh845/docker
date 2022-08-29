@@ -1,8 +1,7 @@
-git clone backend app 
-git clone frontend app 
+git clone backend app \
+git clone frontend app \
 
-
-after that 
+after that \
 
 build all docker images run below command  
 
@@ -16,11 +15,15 @@ show all running container in terminal run this command  : docker ps
 
 
 In laravel application you need to setup laravel setup first so run below command line by line
+
 laravel_php is docker container name 
 
 docker exec laravel_php composer install
+
 docker exec laravel_php cp .env.example .env
+
 docker exec laravel_php php artisan key:generate
+
 
 Setup enviorment variable first 
 DB_CONNECTION=mysql
