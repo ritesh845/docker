@@ -31,7 +31,6 @@ sudo chmod +x laravel-install.sh
 
 ./laravel-install.sh
 
-
 for angular project set enviorment variable 
 
 src/environments/enviorment.ts
@@ -41,17 +40,11 @@ baseUrl: 'http://localhost:8085/api/'
 popupUrl: 'http://localhost:8085/user/exam/'
 
 
-
-
 If you have get build context error in frontend-angular service 
 
 go to docker/Dockerfile.angular file 
 
 replace ../frontend to ./frontend
-
-
-
-
 
 
 Advanced - 
