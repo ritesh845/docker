@@ -120,6 +120,35 @@ docker-compose up
 docker-compose up -d ( background process)
 
 
+docker compose -f dockercompose_yml_file up -d
+
+version: '3'
+ services:
+    web:
+      image: nginx
+      ports:
+       - "80"
+      volumes:
+       - /home/dockerlabs/dockerfiles/:/var/www/html
+    app:
+      image: tomcat
+      ports:
+       - "8080"
+    db:
+      image: redis
+      ports:
+         - "9080"
+
+sacalling the application (Multlipe container create with one docker image)
+
+docker compose -f dockercompose_yml_file --scale web=2 --scale app=3 --scale db=3 up -d
+
+
+
+docker compose doesn't used for scale up and scale donw
+
+
+
 mysql container run
 
 docker run -d \
