@@ -1,6 +1,7 @@
 First run 
 sudo chmod +x install.sh 
 (For clone the frontend and backend project on gitlab and also create mysql folder if it not exits)
+
 ./install.sh
 
 after that 
