@@ -19,32 +19,13 @@ In laravel application you need to setup laravel setup first so run below comman
 
 laravel_php is docker container name 
 
-docker exec laravel_php composer install
+run 
 
-docker exec laravel_php cp .env.example .env
+sudo chmod +x laravel-install.sh
+ (For laravel setup)
 
-docker exec laravel_php php artisan key:generate
+./laravel-install.sh
 
-
-Setup enviorment variable first 
-
-DB_CONNECTION=mysql
-
-DB_HOST=laravel_mysql
-
-DB_PORT=3306
-
-DB_DATABASE=exam-protal
-
-DB_USERNAME=homestead
-
-DB_PASSWORD=secret
-
-docker exec laravel_php php artisan migrate
-
-docker exec laravel_php php artisan db:seed
-
-docker exec laravel_php php artisan jwt:secret
 
 for angular project set enviorment variable 
 

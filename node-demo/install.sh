@@ -43,3 +43,24 @@
 # 	echo
 # 	a=`expr $a + 1`
 # done
+
+
+# a=10
+
+# while [ "$a" -ge 0 ]
+# do 
+# 	b=0
+# 	while [ "$b" -lt $a ]
+# 	do	
+# 		echo -n "* "
+# 		b=`expr $b + 1`
+# 	done
+# 	echo
+# 	a=`expr $a - 1`
+# done
+
+
+port=$1
+
+
+sed -i -e  "s/\(PORT=\).*/\1$1/"  .env
