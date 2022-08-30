@@ -30,9 +30,3 @@ WORKDIR /var/www/html
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 WORKDIR /var/www/html
-
-# RUN git clone -b develop https://esb_ritesh845:glpat-ULKQ1Di3y_2cAc4uz125@gitlab.com/espark-exam/api.git .
-
-# COPY . ../backend
-
-# RUN composer install

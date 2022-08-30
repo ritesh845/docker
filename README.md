@@ -9,6 +9,8 @@ Docker
 --- Docker Compose  (IS use for create docker container)
 --- Docker Network
 --- Docker Swarm 
+--- Docker System
+--- Docker Service
 
 
 
@@ -158,3 +160,19 @@ docker run -d \
      -e MYSQL_DATABASE=todos \
      mysql:5.7
     
+
+
+
+---- Docker compose used for run multiple container at one time file extenstion is .yml
+ex: docker-compose.yml
+
+
+
+docker system df : Show docker disk usage
+docker syetem prune  : used remove unused space
+docker system info : show docker system info
+
+
+
+
+

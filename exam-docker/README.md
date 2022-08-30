@@ -1,16 +1,17 @@
-git clone backend app 
-
-git clone frontend app 
+First run 
+sudo chmod +x install.sh (For clone the frontend and backend project on gitlab and also create mysql folder if it not exits)
 
 after that 
 
 build all docker images run below command  
 
-1) docker compose build 
+1) docker compose build or docker-compose build 
+
+take breath it's take time 
 
 creating container and run docker setup to below command  
 
-docker compose up -d (-d [detech] is optional if you don't want see background process so you don't use -d )
+docker compose up -d or or docker-compose up -d(-d [detech] is optional if you don't want see background process so you don't use -d )
 
 show all running container in terminal run this command  : docker ps  
 
@@ -54,3 +55,35 @@ baseUrl: 'http://localhost:8085/api/'
 popupUrl: 'http://localhost:8085/user/exam/'
 
 
+
+
+If you have get build context error in frontend-angular service 
+
+go to docker/Dockerfile.angular file 
+
+replace ../frontend to ./frontend
+
+
+
+
+
+
+Advanced - 
+
+
+With Swarm 
+
+run below command 
+
+docker swarm inti 
+
+docker compose build 
+
+docker slack deploy --compose-file docker-compose.yml --name examdemo
+
+
+docker serivce ls 
+
+docker ps 
+
+docker 
